@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Rosas Amarillas</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      overflow: hidden;
+    }
+    .pantalla {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    h1 {
+      color: yellow;
+      text-shadow: 0 0 10px yellow;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: 2px solid magenta;
+      background: transparent;
+      color: magenta;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    button:hover {
+      background: magenta;
+      color: white;
+    }
+
+    /* Ramo */
+    .ramo {
+      display: none;
+      margin-top: 80px;
+      animation: subir 2s ease forwards;
+    }
+    .texto {
+      font-size: 22px;
+      color: yellow;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px yellow;
+    }
+
+    svg {
+      width: 100px;
+      margin: 0 15px;
+      transform: scale(0);
+      animation: aparecer 2s forwards;
+    }
+
+    @keyframes aparecer {
+      to { transform: scale(1); }
+    }
+    @keyframes subir {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla inicial -->
+  <div id="pantalla1" class="pantalla">
+    <h1>FELIZ DÍA DE LAS FLORES AMARILLAS</h1>
+    <p>AMOR MÍO</p>
+    <p>TENGO UN REGALO ESPECIAL PARA TI</p>
+    <button onclick="mostrarRamo()">VER TU REGALO</button>
+  </div>
+
+  <!-- Ramo -->
+  <div id="pantalla2" class="ramo">
+    <div class="texto" id="mensaje">
+      Te amo mucho Mariana, feliz día de las flores amarillas 🩵
+    </div>
+
+    <!-- Ramo con 3 rosas SVG -->
+    <div style="display:flex; justify-content:center;">
+      <!-- Rosa 1 -->
+      <svg viewBox="0 0 64 64">
+        <circle cx="32" cy="20" r="12" fill="gold" stroke="orange" stroke-width="2"/>
+        <circle cx="26" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <circle cx="38" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <rect x="30" y="32" width="4" height="30" fill="green"/>
+      </svg>
+
+      <!-- Rosa 2 -->
+      <svg viewBox="0 0 64 64">
+        <circle cx="32" cy="20" r="12" fill="gold" stroke="orange" stroke-width="2"/>
+        <circle cx="26" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <circle cx="38" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <rect x="30" y="32" width="4" height="30" fill="green"/>
+      </svg>
+
+      <!-- Rosa 3 -->
+      <svg viewBox="0 0 64 64">
+        <circle cx="32" cy="20" r="12" fill="gold" stroke="orange" stroke-width="2"/>
+        <circle cx="26" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <circle cx="38" cy="18" r="10" fill="yellow" opacity="0.8"/>
+        <rect x="30" y="32" width="4" height="30" fill="green"/>
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    function mostrarRamo() {
+      document.getElementById("pantalla1").style.display = "none";
+      document.getElementById("pantalla2").style.display = "block";
+
+      // Cambiar mensaje después de unos segundos
+      setTimeout(() => {
+        document.getElementById("mensaje").innerText =
+          "Eres la mejor mujer de esta vida y la única que quiero tener para mi vida 🩵";
+      }, 7000);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
